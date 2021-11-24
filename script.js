@@ -1,6 +1,6 @@
 const colors = document.getElementsByClassName('ball');
 const guessAnswer = document.getElementById('answer');
-const resetButton = document.getElementById('reset-game');
+const scoreBoard = document.getElementById('score');
 
 function generateColors() {
   for (let i = 0; i < colors.length; i += 1) {
@@ -20,6 +20,7 @@ function checkAnswer() {
       const colorToGuess = `rgb${document.getElementById('rgb-color').innerHTML}`;
       if (event.target.style.backgroundColor === colorToGuess) {
         guessAnswer.innerHTML = 'Acertou!';
+        scoreBoard.innerHTML = parseInt(scoreBoard.innerHTML, 10) + 3;
       } else {
         guessAnswer.innerHTML = 'Errou! Tente novamente!';
       }
@@ -30,6 +31,7 @@ function checkAnswer() {
 checkAnswer();
 
 function resetColors() {
+  const resetButton = document.getElementById('reset-game');
   resetButton.addEventListener('click', () => {
     generateColors();
     guessAnswer.innerHTML = 'Escolha uma cor';
