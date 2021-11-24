@@ -7,7 +7,6 @@ function generateColors() {
     const randomColor = Math.floor(Math.random() * 16777215).toString(16);
     colors[i].style.backgroundColor = `#${randomColor}`;
   }
-
   const rgbIndex = Math.floor(Math.random() * (colors.length));
   document.getElementById('rgb-color').innerHTML = colors[rgbIndex].style.backgroundColor.slice(3);
 }
